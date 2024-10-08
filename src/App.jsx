@@ -6,10 +6,15 @@ import OpenComponent from "./OpenComponent";
 
 
 
-const App {
-  
+const App = () => {
+    return (
+      <div className="app">
+        <h1>Open Movie Database</h1>
+        <p>Search for a movie</p>
+        <OpenComponent /> {/* Use the renamed component */}
+      </div>
+    );
   };
-
 
 
 
