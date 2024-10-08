@@ -8,7 +8,7 @@ const OpenComponent = () => {
   const [error, setError] = useState("");
 
   // API Key
-  const API_KEY = "668994f"; 
+  const API_KEY = ""; 
   
   const searchMovies = async () => {
     if (query.trim() === "") {
