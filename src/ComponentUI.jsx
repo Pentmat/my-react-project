@@ -129,3 +129,46 @@ export function OrderInfo({ orders, onIncreaseQuantity, onDecreaseQuantity, onDe
     </div>
   );
 }
+
+// Main Component for managing state and logic
+export default function ComponentUI() {
+  const [orders, setOrders] = useState([]);
+
+  // Handlers for ProductForm actions
+  const handleAddToOrder = (productName, productPrice, quantity) => {
+    const newOrder = { productName, productPrice, quantity };
+    setOrders([...orders, newOrder]);
+  };
+
+  const handleIncreaseQuantity = (index) => {
+    const updatedOrders = [...orders];
+    updatedOrders[index].quantity += 1;
+    setOrders(updatedOrders);
+  };
+
+  const handleDecreaseQuantity = (index) => {
+    const updatedOrders = [...orders];
+    if (updatedOrders[index].quantity > 1) {
+      updatedOrders[index].quantity -= 1;
+      setOrders(updatedOrders);
+    }
+  };
+
+  const handleDeleteOrder = (index) => {
+    const updatedOrders = orders.filter((_, i) => i !== index);
+    setOrders(updatedOrders);
+  };
+
+  return (
+    <div>
+      <Header title="Product Order Page" image="https://your-logo-url.com" />
+      <ProductForm onAddToOrder={handleAddToOrder} />
+      <OrderInfo
+        orders={orders}
+        onIncreaseQuantity={handleIncreaseQuantity}
+        onDecreaseQuantity={handleDecreaseQuantity}
+        onDeleteOrder={handleDeleteOrder}
+      />
+    </div>
+  );
+}
