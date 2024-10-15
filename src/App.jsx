@@ -1,8 +1,7 @@
-// App.js
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import OpenComponent from './OpenComponent';
-import ComponentUI from './ComponentUI'; 
+import ComponentUI from './ComponentUI';
 
 function App() {
   return (
