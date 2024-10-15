@@ -1,9 +1,8 @@
 // App.js
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import RyzenLogo from './assets/ryzen.svg';
 import './App.css';
 import OpenComponent from './OpenComponent';
-import ComponentUI from './ComponentUI'; // Import the full ComponentUI that has the handlers
+import ComponentUI from './ComponentUI'; 
 
 function App() {
   return (
