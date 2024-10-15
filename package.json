@@ -3,18 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Pentmat.github.io/my-react-project", 
+  "homepage": "https://Pentmat.github.io/my-react-project",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist" 
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "axios": "^1.7.7",
-    "react": "^18.3.1", 
+    "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0"
   },
