@@ -6,7 +6,7 @@ import './App.css';
 export function Header({ title, image }) {
   return (
     <header className="header">
-      <img src={image} alt="logo" className="header-logo" />
+      {image && <img src={image} alt="logo" className="header-logo" />}
       <h1>{title}</h1>
     </header>
   );
@@ -136,8 +136,19 @@ export default function ComponentUI() {
 
   // Handlers for ProductForm actions
   const handleAddToOrder = (productName, productPrice, quantity) => {
-    const newOrder = { productName, productPrice, quantity };
-    setOrders([...orders, newOrder]);
+    // Check if the product already exists in the orders
+    const existingOrderIndex = orders.findIndex(order => order.productName === productName);
+
+    if (existingOrderIndex !== -1) {
+      // If the product exists, update its quantity
+      const updatedOrders = [...orders];
+      updatedOrders[existingOrderIndex].quantity += quantity; // Increase quantity by the amount added
+      setOrders(updatedOrders);
+    } else {
+      // If it's a new product, add to orders
+      const newOrder = { productName, productPrice, quantity };
+      setOrders([...orders, newOrder]);
+    }
   };
 
   const handleIncreaseQuantity = (index) => {
@@ -161,7 +172,7 @@ export default function ComponentUI() {
 
   return (
     <div>
-      <Header title="Product Order Page" image="https://your-logo-url.com" />
+      <Header title="Product Order Page" />
       <ProductForm onAddToOrder={handleAddToOrder} />
       <OrderInfo
         orders={orders}
